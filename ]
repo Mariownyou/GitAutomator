@@ -29,12 +29,12 @@ class GitHubAuto():
         elif self.is_private == 'p':
             self.driver.find_element_by_xpath("//input[@id='repository_visibility_public']").click()
         # add gitignor
-        if self.gitignor != 'n':
+        if self.gitignor != None:
             self.driver.find_element_by_xpath("//i[contains(text(), 'Add .gitignore:')]").click()
             self.driver.find_element_by_xpath("//input[@id='context-ignore-filter-field']").send_keys(self.gitignor)
             self.driver.find_element_by_xpath(f"//span[contains(text(), '{self.gitignor}')]").click()
-        sleep(1)
-        self.driver.find_element_by_xpath("//button[contains(text(), 'Create repository')]").click()
+            sleep(1)
+            self.driver.find_element_by_xpath("//button[contains(text(), 'Create repository')]").click()
 
 
 if __name__ == '__main__':
